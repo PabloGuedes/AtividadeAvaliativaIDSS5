@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: php_web
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 300M
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "senha_da_nasa"
+      MYSQL_DATABASE: atividadeavaliativaidss5
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 500M
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: "senha_da_nasa"
+    ports:
+      - "8081:80"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 200M
+
+networks:
+  backend:
