@@ -5,7 +5,6 @@ Passo a passo para configurar e rodar a aplicação usando Docker
 Para começar, você precisará clonar o repositório do projeto para o seu computador. Isso fará uma cópia do projeto para que você possa executá-lo localmente.
 
 • Abra o Terminal ou Prompt de Comando
-
 No Windows: Pressione Win + R, digite cmd e pressione Enter.
 No macOS ou Linux: Abra o aplicativo Terminal.
 
