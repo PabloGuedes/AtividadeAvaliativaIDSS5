@@ -10,11 +10,7 @@ services:
       - backend
     depends_on:
       - db
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 300M
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 60s apache2-foreground
 
   db:
     image: mysql:8.0
@@ -26,11 +22,8 @@ services:
       - "3306:3306"
     networks:
       - backend
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 500M
+    volumes:
+      - ./sql/products.sql:/docker-entrypoint-initdb.d/products.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -42,11 +35,7 @@ services:
       - "8081:80"
     networks:
       - backend
-    deploy:
-      resources:
-        limits:
-          cpus: '4'
-          memory: 200M
 
 networks:
   backend:
+    driver: bridge
