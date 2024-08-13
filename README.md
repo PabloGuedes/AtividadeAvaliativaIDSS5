@@ -23,11 +23,6 @@ cd AtividadeAvaliativaIDSS5
 
 3º passo: Construir e Iniciar os Containers Docker
 
-Para executar o projeto, você precisa usar Docker. Docker é uma ferramenta que ajuda a criar, implantar e executar aplicações em containers. Com os containers, o ambiente de execução da aplicação é garantido, o que evita problemas de compatibilidade.
-
-• Certifique-se de que Docker e Docker Compose estão Instalados
-Verifique se você tem o Docker e o Docker Compose instalados. Se não, você pode instalá-los seguindo as instruções no site oficial do Docker: Instalação do Docker.
-
 • Execute o Comando para Construir e Iniciar os Containers
 No terminal ou prompt de comando, execute o seguinte comando: docker-compose up --build -d
 
